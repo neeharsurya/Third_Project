@@ -1,0 +1,20 @@
+.display_img {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.display_img > div {
+    margin: 30px;
+    padding: 20px;
+}
+
+.para{
+    text-align: center;
+    
+}
+
+.Product_heading {
+    text-align: center;
+    /* text-decoration:underline; */
+}

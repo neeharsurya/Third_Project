@@ -1,0 +1,66 @@
+{% load static %}
+{% static "Internal_detials/images/" as baseUrl %}
+{% comment %} {% static "Internal_details/videos/" as Video_base %} {% endcomment %}
+<!Doctype=html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'Internal_detials/css/Main_page.css' %}">
+        <title>MCB-68 Catalog</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    </head>
+
+    <body style="background-image: url('{% static 'Internal_detials/images/Main_background.jpg' %}'); vh: 100%; background-position: center; background-repeat: no-repeat; background-size: cover;">
+        <nav class="navbar navbar-light bg-warning">
+            <a class="navbar-brand" href="#">
+              <img src="{{baseUrl}}/electrical_logo.jpg" width="30" height="30" style="border-radius: 15px;" class="d-inline-block align-top" alt="">
+              <b>Electronics</b>
+            </a>
+        </nav>
+        <br>
+        <div class="container-fluid">
+            <div class='row'>
+                <div class="col-6 col-md-6 bcol-lg-6 col-xl-6" style="text-align: center;">
+                    <h2 class="para"><mark style="background-color: white; border-radius: 5px;"><b>MCB-68 Catalogue</b></mark></h2>
+                </div>
+                <div class="col-6 col-md-6 bcol-lg-6 col-xl-6" style="text-align: center;">
+                    <h2 class="para"><mark style="background-color: white; border-radius: 5px;">Series_No:15623</b></mark></h2>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h3 class="Product_heading"><mark style="background-color: #9beb34; border-radius: 8px;"><b>Product_details</b></mark></h3>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                {% for detail in Details %}
+                <div class="col-12 col-md-4 col-lg-4 col-xl-4" style="text-align: center;">
+                    {% comment %} <div class="card" style="box-sizing: border-box; width: 50%;"> {% endcomment %}
+                        <a href="{% url detail.name %}">
+                        <img src="{{baseUrl}}/{{detail.img}}" alt="No image" width='300px' height='300px'>
+                        </a>
+                        <br>
+                        <br>
+                        <h4 class="para"><mark style="background-color: #eb6b34; color:white;  border-radius: 8px;">{{detail.name}}</mark></h4>
+                        <br>
+                        <br>
+                    {% comment %} </div> {% endcomment %}
+                </div>
+                {% endfor %}
+                <div class="col-12 col-md-12 col-lg-12 col-xl-12" style="text-align: center;">
+                    {% comment %} <a href="{% url Videos.name %}"> {% endcomment %}
+                    <video width="500" height="200" controls autoplay><source src="{% static 'Internal_detials/videos/Product_vid.mp4' type='video/mp4' %}"></video>
+                    {% comment %} </a> {% endcomment %}
+                    <br>
+                    <br>
+                    <h4 class="para"><mark style="background-color: #eb6b34; color:white;  border-radius: 8px;">{{Videos.name}}</mark></h4>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    <body>
+</html>
